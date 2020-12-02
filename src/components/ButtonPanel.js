@@ -8,13 +8,13 @@ const ButtonPanel = () => {
   const group4 = ['1', '2', '3', '+'];
   const group5 = ['0', '.', '='];
 
-  const buttons = [group1, group2, group3, group4, group5];
+  const groups = [group1, group2, group3, group4, group5];
 
   return (
     <>
-      {buttons.map(button => (
-        <div key={button}>
-          {button.map(char => (
+      {groups.map(group => (
+        <div key={group}>
+          {group.map(char => (
             <Button key={char} name={`${char}`} />
           ))}
         </div>
