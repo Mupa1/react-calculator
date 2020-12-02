@@ -12,13 +12,13 @@ const calculate = (dataObject, buttonName) => {
     total *= -1;
     next *= -1;
   } else if (operators.includes(buttonName)) {
-    operate(total, next, operation).toString();
+    operate(total, next, operation);
   } else if (buttonName === '.' && next) {
     if (!next.includes('.')) {
-      next += '.';
+      next = next.concat('.');
     }
   } else if ((buttonName === '=') && (next && total)) {
-    total = operate(total, next, operation).toString();
+    total = operate(total, next, operation);
     next = null;
     operation = null;
   }
