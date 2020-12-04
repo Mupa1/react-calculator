@@ -3,6 +3,7 @@ import Big from 'big.js';
 const operate = (numberOne, numberTwo, operation) => {
   const num1 = Big(numberOne);
   const num2 = Big(numberTwo);
+
   let result;
 
   if (operation === '+') {
@@ -15,7 +16,11 @@ const operate = (numberOne, numberTwo, operation) => {
     result = num1.times(num2).toString();
   }
   if (operation === '÷') {
-    result = num1.div(num2).toString();
+    if (numberTwo === '0') {
+      result = 'Infinity';
+    } else {
+      result = num1.div(numberTwo).toString();
+    }
   }
   if (operation === '%') {
     result = num1.mod(num2).toString();
