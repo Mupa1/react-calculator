@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import Display from './Display';
-import ButtonPanel from './ButtonPanel';
-import calculate from '../logic/calculate';
+import Display from '../display/Display';
+import ButtonPanel from '../buttonPanel/ButtonPanel';
+import calculate from '../../logic/calculate';
+import styles from './App.module.css';
 
 const App = () => {
   const [state, setState] = useState({
@@ -21,8 +22,10 @@ const App = () => {
 
   return (
     <>
-      <Display result={result} />
-      <ButtonPanel clickHandler={handleClick} />
+      <div className={styles.container}>
+        <Display result={result} />
+        <ButtonPanel clickHandler={handleClick} />
+      </div>
     </>
   );
 };
