@@ -13,7 +13,7 @@ const Nav = () => (
       <Link className={styles.navLink} to="/calculator">
         <li>Calculator</li>
       </Link>
-      <Link className={styles.navLink} to="/">
+      <Link className={styles.navLink} to="/quote">
         <li>Quote</li>
       </Link>
     </ul>
