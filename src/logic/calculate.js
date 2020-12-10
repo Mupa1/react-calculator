@@ -32,10 +32,9 @@ const calculate = (dataObject, buttonName) => {
       operation = buttonName;
     }
   } else if (buttonName === '.') {
-    total = String(total);
     if (next !== null) {
       if (!next.includes('.')) {
-        next = next.concat('.').toString();
+        next += '.';
       }
     } else if (!total.includes('.')) {
       total += '.';
@@ -55,6 +54,7 @@ const calculate = (dataObject, buttonName) => {
   } else {
     next = buttonName;
   }
+
   return { total, next, operation };
 };
 
