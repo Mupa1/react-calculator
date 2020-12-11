@@ -16,14 +16,14 @@ const operate = (numberOne, numberTwo, operation) => {
     result = num1.times(num2).toString();
   }
   if (operation === '÷') {
-    if (numberTwo === '0') {
+    if (num2 === '0') {
       result = 'Infinity';
     } else {
-      result = num1.div(numberTwo).toString();
+      result = num1.div(num2).toString();
     }
   }
   if (operation === '%') {
-    result = num1.mod(num2).toString();
+    result = num1.times('0.01').toString();
   }
   return result;
 };

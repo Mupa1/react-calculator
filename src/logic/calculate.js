@@ -2,23 +2,29 @@ import operate from './operate';
 
 const calculate = (dataObject, buttonName) => {
   const operators = ['+', '-', '÷', 'x', '%'];
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   let { total, next, operation } = dataObject;
 
   if (buttonName === '+/-') {
-    if (next !== null) {
-      next = (next * -1).toString();
-    } else {
-      total = (total * -1).toString();
+    if (next) {
+      next = (-1 * parseFloat(next)).toString();
     }
-  } else if (buttonName === '=' && next && total && operation) {
+    if (total) {
+      total = (-1 * parseFloat(total)).toString();
+    }
+  }
+
+  if (buttonName === '=' && next && total && operation) {
     total = operate(total, next, operation);
     next = null;
     operation = null;
-  } else if (operators.includes(buttonName)) {
+  }
+
+  if (operators.includes(buttonName)) {
     if (buttonName === '%') {
-      total = String(total);
-      next = null;
+      next = (next *= 0.01).toString();
+      operation = null;
     }
     if (total && next && operation) {
       total = operate(total, next, operation);
@@ -31,7 +37,9 @@ const calculate = (dataObject, buttonName) => {
     } else {
       operation = buttonName;
     }
-  } else if (buttonName === '.') {
+  }
+
+  if (buttonName === '.') {
     if (next !== null) {
       if (!next.includes('.')) {
         next += '.';
@@ -39,20 +47,25 @@ const calculate = (dataObject, buttonName) => {
     } else if (!total.includes('.')) {
       total += '.';
     }
-  } else if (buttonName === 'AC') {
+  }
+
+  if (buttonName === 'AC') {
     total = null;
     next = null;
     operation = null;
-  } else if (next) {
-    if (
-      !operators.includes(buttonName)
-      && buttonName !== '='
-      && buttonName !== '.'
-    ) {
+  }
+
+  if (numbers.includes(buttonName)) {
+    if (next && operation) {
+      if (operation !== '=') {
+        next += buttonName;
+      }
+    } else if (next) {
       next += buttonName;
+      total = null;
+    } else {
+      next = buttonName;
     }
-  } else {
-    next = buttonName;
   }
 
   return { total, next, operation };

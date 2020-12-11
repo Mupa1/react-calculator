@@ -31,14 +31,14 @@ describe('calculate', () => {
   });
 
   it('should divide numbers', () => {
-    expect(buttonsArray(['12', '÷', '6', '='], '=')).toEqual({
+    expect(buttonsArray(['6', '÷', '3', '='], '=')).toEqual({
       total: '2',
     });
   });
 
   it('should minus numbers', () => {
-    expect(buttonsArray(['12', '-', '6', '='], '=')).toEqual({
-      total: '6',
+    expect(buttonsArray(['6', '-', '3', '='], '=')).toEqual({
+      total: '3',
     });
   });
 
@@ -116,6 +116,13 @@ describe('calculate', () => {
   it('should have ÷ as an operation', () => {
     expect(buttonsArray(['÷'], '÷')).toEqual({
       operation: '÷',
+    });
+  });
+
+  it('4 % should total to 0.04', () => {
+    expect(buttonsArray(['4', '%'])).toEqual({
+      operation: '%',
+      total: '0.04',
     });
   });
 });
