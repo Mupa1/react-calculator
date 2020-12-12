@@ -1,12 +1,26 @@
 # Calculator App
 
-A calculator app built using React.
+A Math Magicians' calculator app built using React.
+
+## Screenshot
+
+![calc-screenshot](https://user-images.githubusercontent.com/44979953/101976119-87df5280-3c42-11eb-9aa3-c7152c42b19f.png)
+
+![chrome-capture](https://user-images.githubusercontent.com/44979953/101976030-b14bae80-3c41-11eb-86d6-e446d68a3cb8.gif)
 
 ## Built With
 
-- HTML/CSS
-- Javascript
 - React
+- big.js
+- Eslint
+- Stylelint
+- NPM
+- Jest snapshots
+- React testing library
+- Github
+- Heroku
+
+## Live Link (Heroku)
 
 [Live Link](https://react-calculator-app-mupa.herokuapp.com/)
 
@@ -24,7 +38,7 @@ To make changes open react-calculator folder in you favorite editor.
 
 ## Automated Test
 
- > No automated tests yet for this project.
+ > yarn test
 
 ## Author
 
@@ -38,8 +52,9 @@ To make changes open react-calculator folder in you favorite editor.
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Mupa1/weather-app/issues).
+Feel free to check the [issues page](https://github.com/Mupa1/react-calculator/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
