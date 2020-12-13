@@ -1,0 +1,18 @@
+.button {
+  height: 100%;
+  width: 25%;
+  font-size: 30px;
+  border: 1px solid lightgray;
+}
+
+.wide {
+  width: 50%;
+}
+
+.gray {
+  background-color: #efefef;
+}
+
+.orange {
+  background-color: #f5913e;
+}
