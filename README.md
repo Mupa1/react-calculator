@@ -4,9 +4,9 @@ A Math Magicians' calculator app built using React.
 
 ## Screenshot
 
-![calc-screenshot](https://user-images.githubusercontent.com/44979953/101976119-87df5280-3c42-11eb-9aa3-c7152c42b19f.png)
+![Screen Shot 2020-12-13 at 12 43 41](https://user-images.githubusercontent.com/44979953/102010859-08847880-3d41-11eb-9f39-08981f35f5e1.png)
 
-![chrome-capture](https://user-images.githubusercontent.com/44979953/101976030-b14bae80-3c41-11eb-86d6-e446d68a3cb8.gif)
+![chrome-capture](https://user-images.githubusercontent.com/44979953/102011157-ca885400-3d42-11eb-87bb-2215f5c90dfd.gif)
 
 ## Built With
 
