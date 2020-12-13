@@ -40,12 +40,11 @@ const calculate = (dataObject, buttonName) => {
   }
 
   if (buttonName === '.') {
-    if (next !== null) {
-      if (!next.includes('.')) {
-        next += '.';
+    if (next) {
+      if (next.includes('.')) {
+        return {};
       }
-    } else if (!total.includes('.')) {
-      total += '.';
+      next += '.';
     }
   }
 
@@ -56,6 +55,9 @@ const calculate = (dataObject, buttonName) => {
   }
 
   if (numbers.includes(buttonName)) {
+    if (buttonName === '0' && next === '0') {
+      return {};
+    }
     if (next && operation) {
       if (operation !== '=') {
         next += buttonName;
@@ -66,6 +68,10 @@ const calculate = (dataObject, buttonName) => {
     } else {
       next = buttonName;
     }
+  }
+
+  if (!next && !total && buttonName !== 'AC') {
+    return {};
   }
 
   return { total, next, operation };

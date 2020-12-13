@@ -16,8 +16,8 @@ const operate = (numberOne, numberTwo, operation) => {
     result = num1.times(num2).toString();
   }
   if (operation === '÷') {
-    if (num2 === '0') {
-      result = 'Infinity';
+    if (num2.toString() === '0') {
+      result = 'NaN';
     } else {
       result = num1.div(num2).toString();
     }

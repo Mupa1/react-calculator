@@ -16,11 +16,6 @@ const clickButton = buttons => {
   buttons.forEach(button => {
     Object.assign(value, fireEvent.click(screen.getByText(button)));
   });
-  Object.keys(value).forEach(key => {
-    if (value[key] === null) {
-      delete value[key];
-    }
-  });
   return value;
 };
 

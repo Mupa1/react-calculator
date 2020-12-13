@@ -11,10 +11,12 @@ A Math Magicians' calculator app built using React.
 ## Built With
 
 - React
-- big.js
-- Eslint
-- Stylelint
-- NPM
+- React-Create-App
+- React-DOM
+- ES6
+- Big.js
+- Prop-types
+- npm
 - Jest snapshots
 - React testing library
 - Github

@@ -42,13 +42,61 @@ describe('calculate', () => {
     });
   });
 
-  it('should concactenate numbers', () => {
+  it('should not accept + as the first button clicked', () => {
+    expect(buttonsArray(['+'], '+')).not.toEqual({
+      operation: '+',
+    });
+  });
+
+  it('should not accept - as the first button clicked', () => {
+    expect(buttonsArray(['-'], '-')).not.toEqual({
+      operation: '-',
+    });
+  });
+
+  it('should not accept x as the first button clicked', () => {
+    expect(buttonsArray(['x'], 'x')).not.toEqual({
+      operation: 'x',
+    });
+  });
+
+  it('should not accept ÷ as the first button clicked', () => {
+    expect(buttonsArray(['÷'], '÷')).not.toEqual({
+      operation: '÷',
+    });
+  });
+
+  it('should not accept ÷ as the first button clicked', () => {
+    expect(buttonsArray(['÷'], '÷')).not.toEqual({
+      operation: '÷',
+    });
+  });
+
+  it('should not divide a number by "0"', () => {
+    expect(buttonsArray(['6', '÷', '0', '='], '=')).not.toEqual({
+      total: '0',
+    });
+  });
+
+  it('should still show the total if = is clicked multiple times after an operation', () => {
+    expect(buttonsArray(['1', '+', '2', '=', '=', '=', '='], '=')).not.toEqual({
+      total: '=',
+    });
+  });
+
+  it('should concatenate numbers', () => {
     expect(buttonsArray(['6', '7'], '+')).toEqual({
       next: '67',
     });
   });
 
-  it('should concactenate numbers into floats', () => {
+  it('should not concatenate two leading zeros', () => {
+    expect(buttonsArray(['0', '0'])).not.toEqual({
+      next: '00',
+    });
+  });
+
+  it('should concatenate numbers into floats', () => {
     expect(buttonsArray(['0', '.', '7'], '+')).toEqual({
       next: '0.7',
     });
@@ -92,30 +140,6 @@ describe('calculate', () => {
   it('should have a total of 18', () => {
     expect(buttonsArray(['3', '+', '6', '=', '+', '9', '='], '=')).toEqual({
       total: '18',
-    });
-  });
-
-  it('should have + as an operation', () => {
-    expect(buttonsArray(['+'], '+')).toEqual({
-      operation: '+',
-    });
-  });
-
-  it('should have - as an operation', () => {
-    expect(buttonsArray(['-'], '-')).toEqual({
-      operation: '-',
-    });
-  });
-
-  it('should have x as an operation', () => {
-    expect(buttonsArray(['x'], 'x')).toEqual({
-      operation: 'x',
-    });
-  });
-
-  it('should have ÷ as an operation', () => {
-    expect(buttonsArray(['÷'], '÷')).toEqual({
-      operation: '÷',
     });
   });
 
