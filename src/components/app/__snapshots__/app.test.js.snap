@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <nav>
+    <h1>
+      Math Magicians
+    </h1>
+    <ul
+      className="navLinks"
+    >
+      <a
+        className="navLink"
+        href="/"
+        onClick={[Function]}
+      >
+        <li>
+          Home
+        </li>
+      </a>
+      <a
+        className="navLink"
+        href="/calculator"
+        onClick={[Function]}
+      >
+        <li>
+          Calculator
+        </li>
+      </a>
+      <a
+        className="navLink"
+        href="/quote"
+        onClick={[Function]}
+      >
+        <li>
+          Quote
+        </li>
+      </a>
+    </ul>
+  </nav>,
+  <div
+    className="home"
+  >
+    <h2>
+      Welcome to our page!
+    </h2>
+    <p>
+      Math Magicians lets you do fun basic calculations.
+    </p>
+    <p>
+      Click on the Calculator link to do some math.
+    </p>
+  </div>,
+]
+`;

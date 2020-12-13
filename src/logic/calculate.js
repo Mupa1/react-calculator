@@ -7,20 +7,24 @@ const calculate = (dataObject, buttonName) => {
   let { total, next, operation } = dataObject;
 
   if (buttonName === '+/-') {
-    if (next !== null) {
-      next = (next * -1).toString();
-    } else {
-      total = (total * -1).toString();
+    if (next) {
+      next = (-1 * parseFloat(next)).toString();
     }
-  } else if (buttonName === '=') {
-    if (operation !== null && next !== null) {
-      total = operate(total, next, operation).toString();
-      next = null;
+    if (total) {
+      total = (-1 * parseFloat(total)).toString();
     }
-  } else if (operators.includes(buttonName)) {
+  }
+
+  if (buttonName === '=' && next && total && operation) {
+    total = operate(total, next, operation);
+    next = null;
+    operation = null;
+  }
+
+  if (operators.includes(buttonName)) {
     if (buttonName === '%') {
-      total = String(total);
-      next = null;
+      next = (next *= 0.01).toString();
+      operation = null;
     }
     if (total && next && operation) {
       total = operate(total, next, operation);
@@ -33,29 +37,41 @@ const calculate = (dataObject, buttonName) => {
     } else {
       operation = buttonName;
     }
-  } else if (buttonName === '.') {
-    total = String(total);
-    if (next !== null) {
-      if (!next.includes('.')) {
-        next = next.concat('.').toString();
+  }
+
+  if (buttonName === '.') {
+    if (next) {
+      if (next.includes('.')) {
+        return {};
       }
-    } else if (!total.includes('.')) {
-      total += '.';
+      next += '.';
     }
-  } else if (buttonName === 'AC') {
+  }
+
+  if (buttonName === 'AC') {
     total = null;
     next = null;
     operation = null;
-  } else if (numbers.includes(buttonName)) {
-    if (total && operation === null) {
-      total = `${total}${buttonName}`;
-    } else if (operation === null && total === null) {
-      total = buttonName;
+  }
+
+  if (numbers.includes(buttonName)) {
+    if (buttonName === '0' && next === '0') {
+      return {};
+    }
+    if (next && operation) {
+      if (operation !== '=') {
+        next += buttonName;
+      }
     } else if (next) {
-      next = `${next}${buttonName}`;
+      next += buttonName;
+      total = null;
     } else {
       next = buttonName;
     }
+  }
+
+  if (!next && !total && buttonName !== 'AC') {
+    return {};
   }
 
   return { total, next, operation };
